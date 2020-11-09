@@ -1,0 +1,3 @@
+[09/11/2020 09:03:12 PM] Child process was terminated
+[09/11/2020 09:05:49 PM] Child process was terminated
+[09/11/2020 09:06:44 PM] Child process was terminated
