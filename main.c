@@ -94,9 +94,10 @@ void fork_and_execute(char *command, char *args[], bool wait_flag) {
         execvp(command, args);
         exit(0);
     } else {
+        waitpid(-1, NULL, WNOHANG);
         if (wait_flag)
             wait(NULL);
-    }
+        }
 }
 
 /// called when the child process terminates to log the termination to a file
@@ -113,6 +114,7 @@ void log_child_completion() {
 int main() {
     signal(SIGCHLD, log_child_completion); /// handles the signal of child termination
     while (true) {
+        printf("> ");
         u_char c;
         do {
             c = (u_char) getchar();
