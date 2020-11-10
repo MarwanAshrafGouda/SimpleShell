@@ -94,7 +94,7 @@ void fork_and_execute(char *command, char *args[], bool wait_flag) {
         execvp(command, args);
         exit(0);
     } else {
-        waitpid(-1, NULL, WNOHANG);
+        waitpid(-1, NULL, WNOHANG); ///prevents zombie processes
         if (wait_flag)
             wait(NULL);
         }
